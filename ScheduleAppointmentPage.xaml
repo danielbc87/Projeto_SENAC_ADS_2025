@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="Health_Organizer.ScheduleAppointmentPage"
+             Title="Agendar Consulta">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <!-- Banner Superior -->
+        <Frame BackgroundColor="Purple" Padding="10">
+            <Label Text="Agendar Consulta"
+                   TextColor="White"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+        </Frame>
+
+        <!-- Campo Nome do Médico -->
+        <Entry x:Name="docNameEntry" Placeholder="Nome do Médico"
+               BackgroundColor="White"
+               TextColor="Black"
+               HeightRequest="50"
+               Margin="10"/>
+
+        <!-- Campo Data -->
+        <!-- Campo Data (usando DatePicker mas mantendo dateEntry.Text) -->
+        <Grid Margin="10" HeightRequest="50">
+            <Entry x:Name="dateEntry"
+               Placeholder="Data (DD/MM/AAAA)"
+               BackgroundColor="White"
+               TextColor="Black"
+               IsReadOnly="True"
+               VerticalOptions="Center"
+               HorizontalOptions="FillAndExpand">
+                <Entry.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDateEntryTapped"/>
+                </Entry.GestureRecognizers>
+            </Entry>
+
+            <DatePicker x:Name="datePicker"
+                    Format="dd/MM/yyyy"
+                    MinimumDate="{x:Static sys:DateTime.Today}"
+                    DateSelected="OnDateSelected"
+                    Opacity="0"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"/>
+        </Grid>
+
+
+        <!-- Campo Horário -->
+        <Entry x:Name="timeEntry" Placeholder="Horário (HH:MM)" Keyboard="Numeric"
+               BackgroundColor="White"
+               TextColor="Black"
+               HeightRequest="50"
+               Margin="10"
+               TextChanged="OnHorarioTextChanged"/>               
+             
+
+        <!-- Botão Salvar -->
+        <Button Text="Salvar"
+                BackgroundColor="Blue"
+                TextColor="White"
+                FontAttributes="Bold"
+                HeightRequest="50"
+                Clicked="OnSaveClicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

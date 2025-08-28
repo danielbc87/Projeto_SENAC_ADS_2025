@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Health_Organizer.AddMedicationPage"
+             Title="Adicionar Medicamento">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <!-- Banner Superior -->
+        <Frame BackgroundColor="Purple" Padding="10">
+            <Label Text="Adicionar Medicamento"
+                   TextColor="White"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+        </Frame>
+
+        <!-- Campo Nome do Medicamento -->
+        <Entry x:Name="medNameEntry" Placeholder="Nome do Medicamento"
+               BackgroundColor="White"
+               TextColor="Black"
+               HeightRequest="50"
+               Margin="0,5,0,5"/>
+
+        <Entry x:Name="medPrimeiroHorarioEntry"
+       Placeholder="Horário (HH:MM)"
+       Keyboard="Numeric"
+       BackgroundColor="White"
+       TextColor="Black"
+       HeightRequest="50"
+       Margin="0,5,0,5"
+       TextChanged="OnHorarioTextChanged"/>
+
+
+
+        <!-- Frequência: Número + Unidade -->
+        <HorizontalStackLayout Spacing="10" Margin="0,5,0,5">
+            <Label Text="Frequência" FontSize="14" FontAttributes="Bold" />
+
+            <!-- Número da frequência -->
+            <Entry x:Name="medFrequenciaEntry"
+           Placeholder="Ex: 8"
+           Keyboard="Numeric"
+           WidthRequest="100"
+           BackgroundColor="White"
+           TextColor="Black"
+           HeightRequest="50"/>
+
+             <!-- Unidade da frequência -->
+        
+           
+            <Picker x:Name="frequenciaPicker"
+            WidthRequest="150"
+            BackgroundColor="White"
+            TextColor="Black"
+             SelectedIndex="1"
+            HeightRequest="50">
+                
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Horas</x:String>
+                        <x:String>Dias</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+        </HorizontalStackLayout>
+
+
+        <Label Text="Por quantos dias?" FontSize="14" FontAttributes="Bold" />
+        <!-- Campo Dias -->
+        <Entry x:Name="Qtd" Placeholder="Quantidade de Dias" Keyboard="Numeric"
+          BackgroundColor="White"
+         TextColor="Black"
+         HeightRequest="50"
+         Margin="0,5,0,5"/>
+
+
+        <!-- Botão Salvar -->
+        <Button Text="Salvar"
+                BackgroundColor="Green"
+                TextColor="White"
+                FontAttributes="Bold"
+                HeightRequest="50"
+                Clicked="OnSaveClicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Health_Organizer.MainPage"
+             BackgroundColor="White"
+             Title="Projeto Integrador - SENAC 2024/2025">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <!-- Banner Superior -->
+        <Frame BackgroundColor="AliceBlue" Padding="12">
+            <Label Text="HealthOrganizer - Organizador de Saúde" 
+                   TextColor="Black"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+        </Frame>
+
+        <!-- Título Principal -->
+        <Label Text="HealthOrganizer"
+               FontSize="32"
+               FontAttributes="Bold"
+               TextColor="Black"
+               HorizontalOptions="Center"/>
+
+        <!-- Subtítulo -->
+        <Label Text="Controle de Consultas e Medicamentos"
+               FontSize="18"
+               TextColor="Black"
+               HorizontalOptions="Center"/>
+
+        <!-- Botão de Adicionar Medicamento -->
+        <Button Text="Adicionar Medicamento"
+                BackgroundColor="Purple"
+                TextColor="White"
+                FontAttributes="Bold"
+                Clicked="OnAddMedicationClicked"/>
+
+        <!-- Botão de Agendar Consulta -->
+        <Button Text="Adicionar Consulta"
+                BackgroundColor="Purple"
+                TextColor="White"
+                FontAttributes="Bold"
+                Clicked="OnScheduleAppointmentClicked"/>
+
+
+        <Button Text="Ver Registros Salvos"
+        BackgroundColor="Purple"
+        TextColor="White"
+        FontAttributes="Bold"
+        Clicked="OnViewRecordsClicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

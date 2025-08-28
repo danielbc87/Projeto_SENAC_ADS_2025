@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Health_Organizer.ListRecordsPage"
+             Title="Registros Salvos">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Banner Superior -->
+            <Frame BackgroundColor="Purple" Padding="10" CornerRadius="10">
+                <Label Text="Registros Salvos"
+                       TextColor="White"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"/>
+            </Frame>
+
+            <!-- Lista de Medicamentos -->
+            <Label Text="Medicamentos" FontSize="18" FontAttributes="Bold" />
+            <CollectionView x:Name="MedicationsListView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="LightGray" CornerRadius="8" Padding="10" Margin="0,5">
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="{Binding Resumo}" FontSize="14" TextColor="Black" />
+
+                                <HorizontalStackLayout Spacing="10" HorizontalOptions="End">
+                                    <Button Text="Editar" BackgroundColor="Blue" TextColor="White" 
+                                            Padding="10,5"
+                                            Clicked="OnEditMedicationClicked" CommandParameter="{Binding .}" />
+                                    <Button Text="Excluir" BackgroundColor="Red" TextColor="White" 
+                                            Padding="10,5"
+                                            Clicked="OnDeleteMedicationClicked" CommandParameter="{Binding .}" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Lista de Consultas -->
+            <Label Text="Consultas" FontSize="18" FontAttributes="Bold" />
+            <CollectionView x:Name="AppointmentsListView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="LightGray" CornerRadius="8" Padding="10" Margin="0,5">
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="{Binding Doctor}" FontSize="16" FontAttributes="Bold" />
+                                <Label Text="{Binding Date, StringFormat='Data: {0}'}" 
+                                       FontSize="14" TextColor="Gray" />
+
+                                <HorizontalStackLayout Spacing="10" HorizontalOptions="End">
+                                    <Button Text="Editar" BackgroundColor="Blue" TextColor="White" 
+                                            Padding="10,5"
+                                            Clicked="OnEditAppointmentClicked" CommandParameter="{Binding .}" />
+                                    <Button Text="Excluir" BackgroundColor="Red" TextColor="White" 
+                                            Padding="10,5"
+                                            Clicked="OnDeleteAppointmentClicked" CommandParameter="{Binding .}" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+
